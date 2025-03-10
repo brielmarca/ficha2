@@ -1,17 +1,27 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
-    int count = 0;
-    int number = 2; // Start at 2 (first number after 1)
+    string nomeMaisLongo = "";
+    int contador = 0;
 
-    while (number < 20) { // Stop before reaching 20
-        if (number % 2 == 0) {
-            count++;
+    while (contador < 3) {
+        string primeiroNome, apelido;
+        cout << "Digite o " << contador + 1 << "º nome próprio: ";
+        cin >> primeiroNome;
+        cout << "Digite o " << contador + 1 << "º apelido: ";
+        cin >> apelido;
+        
+        string nomeCompleto = primeiroNome + " " + apelido;
+        
+        if (nomeCompleto.length() > nomeMaisLongo.length()) {
+            nomeMaisLongo = nomeCompleto;
         }
-        number++;
+        
+        contador++;
     }
 
-    cout << "There are " << count << " even numbers between 1 and 20 (excluding limits)." << endl;
+    cout << "\nNome com mais caracteres: " << nomeMaisLongo << endl;
     return 0;
 }
